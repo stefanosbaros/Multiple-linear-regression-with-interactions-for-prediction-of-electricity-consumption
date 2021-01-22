@@ -28,7 +28,7 @@ Using  our  data,  we  plot  the  load  versus  temperature  characteristic to g
 ![caption='Load-temperature characteristic'](load_temp.png)
 
 
-### Capturing seasonal effects on Load - temperature characteristic via interaction effects
+### Capturing seasonal effects on Load-temperature characteristic via interaction effects
 Having discussed the main form of the load-temperature characteristics, we now explore how the particular month of the year, day of the week, and hour of the day affect the load either directly via energy-demanding human activities or indirectly via changes in the load-temperature relationship.
 
 #### Effect of month of the year on electric load
@@ -50,4 +50,6 @@ The Load-Temperature characteristic does not depend on the particular day of the
 The temperature varies with the hour of the day. We want to see whether the load-temperature characteristic depends on the hour of the day. Plotting the load for different hours of the day, we see that the load-temperature characteristic does change with the hour of the day. This aligns with intuition as a low temperature in the middle of the the night won't lead to the same electric load as the same temperature at noon the day after--- people won't wake up and turn on heat in the middle of the night. 
 \par To account for this effect, we allow interaction of the load-temperature characteristic with the hour of the day by multiplying the hour the day with the basic characteristic.
 \par The hour of the day also affects the load through the heat build-up effect. The temperature at the previous hour will affect the load at the current hour together with the temperature at the current hour. To understanding this, we consider two scenarios. In the first scenario, we consider a winter day where the temperature in the previous hour is higher than the temperature in the curren hour. In this case, the walls of the buildings have stored some heat and thus there is not need for people to ramp up their heating systems at the current hour. In the second scenario, we consider that the temperature in the previous hour is the same with the temperature in the current hour (and equal to the temperature in the current hour of the previous scenario). In this case there is not much heat build-up in the buildings so at the current hour we need to use our heating systems more heavily despite having the same temperature as in the previous scenario.
+
+## Results
 
