@@ -1,4 +1,4 @@
-# Multiple Linear Regression with Interaction Effects for Load Forecasting
+# Multiple linear regression with interaction effects for load forecasting
 
 
 ## Project description
