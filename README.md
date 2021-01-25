@@ -28,10 +28,11 @@ From the two figures below, we see that there is high correlation between the pe
 ![Load](load_four_years.png)    ![Temperature](temperature_four_years.png)
 
 
-Using  our  data,  we  plot  the  load  versus  temperature  characteristic to get a sense of its overall shape. We  see  that,  this  characteristic  has a  predominantly  quadratic/cubic  U-shape.  We  note  that,  this curve  is  not symmetric  as  its right  part  exhibits  steeper  slope  than  the  left  part.  The minimum  of  this curve  appears at  62  F.  Given  the  shape of this curve one can easily conclude that piecewise linear, piecewise quadratic, continuous quadratic or cubic functions seem to be the most appropriate functions for capturing the basic relationship between the load and temperature. In this project, we explore both a continuous  quadratic  function and a cubic function to  model  the  load-temperature  relationship. 
+Using  our  data,  we  plot  the  load  versus  temperature  characteristic to get a sense of its overall shape. 
 
-![caption='Load-temperature characteristic'](load_temp.png)
+                                    ![caption='Load-temperature characteristic'](load_temp.png)
 
+We  see  that,  this  characteristic  has a  predominantly  quadratic/cubic  U-shape.  We  note  that,  this curve  is  not symmetric  as  its right  part  exhibits  steeper  slope  than  the  left  part.  The minimum  of  this curve  appears at  62  F.  Given  the  shape of this curve one can easily conclude that piecewise linear, piecewise quadratic, continuous quadratic or cubic functions seem to be the most appropriate functions for capturing the basic relationship between the load and temperature. In this project, we explore both a continuous  quadratic  function and a cubic function to  model  the  load-temperature  relationship. 
 
 ### Capturing seasonal variations on load-temperature characteristic via interaction effects
 Having discussed the main form of the load-temperature characteristics, we now explore how the particular month of the year, day of the week, and hour of the day affect the load either directly via energy-demanding human activities or indirectly via changes in the load-temperature relationship.
