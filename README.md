@@ -83,7 +83,7 @@ We construct **seven regression models** including the full model, each time by 
            ` 'TMPxSIN_HOUR','TMPxCOS_HOUR','TMP2xSIN_HOUR','TMP2xCOS_HOUR', 'TMP3xSIN_HOUR','TMP3xCOS_HOUR',`
            ` 'DTMPxSIN_HOUR', 'DTMPxCOS_HOUR']`
 
-The performance of these different models is assessed first using standard goodness-of-fit criteria.
+The performance of these different models is assessed first using **standard goodness-of-fit criteria**. 
 
 
 | Model | Adjusted R-squared | Mean squared error (MSE) | Mean absolute error (MAE) |
@@ -96,3 +96,6 @@ The performance of these different models is assessed first using standard goodn
 | Model 6 | 0.7404 | 9.5481 | 2.4757 |
 | Full model | 0.7946 | 7.5506 | 2.2198 |
 
+
+### Discussion on the results
+A couple of things are important to notice here. First, Model 2 performs better than Model 1, which means that a cubic function explains the data better than a quadratic one. Better performance here means larger Adjusted R-squared and smaller MSE and MAE. Model 3 and Model 4 which include the month and the hour as features lead to better performance than Model 2. This verifies our earlier argument that the month and hour are important variables that affect the electric load. Lastly, Model 5, 6 and the full model take into account the interaction effects and lead to further improvements in performance. Lastly, we see that the full model that includes all interaction effects leads to the best overall performance compared with the remaining six models i.e., largest Adjusted R-squared and smallest MSE and MAE. 
