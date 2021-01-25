@@ -6,6 +6,7 @@
 Electric load forecasting lies at the heart of  power  system  operation  routines  such  as  economic  dispatch and optimal power flow.  This sparked a lot of interest in recent years towards  developing  accurate  models for  predicting  electric  load.  Prior  art  in  this domain employed time-series and linear regression as means for developing good  forecasting  models.  In this project, we use **multiple regression with interaction effects and cyclical features encoding** to develop a new model that can accurately predict electric load from several features including the temperature.  We  test our full model together with various reduced-order models that arise after considering subsets of all features and  quantify  their  performance  via both standard  **goodness-of-fit-criteria** such as the adjusted R-squared as well as criteria that rely on the **prediction error**. 
 
 
+
 ## Description of files
 
 
@@ -58,3 +59,13 @@ The hour of the day also affects the load through the heat build-up effect. The 
 
 ## Results
 
+The **features** we use in this project are:
+
+- features =['TREND','TMP','TMP2','TMP3','SIN_MONTH','COS_MONTH','TMPxSIN_MONTH',
+            'TMPxCOS_MONTH','TMP2xSIN_MONTH','TMP2xCOS_MONTH', 'TMP3xSIN_MONTH','TMP3xCOS_MONTH',
+            'TMPxSIN_HOUR','TMPxCOS_HOUR','TMP2xSIN_HOUR','TMP2xCOS_HOUR', 'TMP3xSIN_HOUR','TMP3xCOS_HOUR',
+            'DTMPxSIN_HOUR', 'DTMPxCOS_HOUR']
+            
+  where TMP, TMP2 and TMP3 denote the temperature, temperature squared and temperature in the cubic power, respectively. The features SIN_MONTH, COS_MONTH, SIN_HOUR, COS_HOUR denote the cyclical variables associated with the particular month of the year and hour of the day.
+
+We consider the following models
