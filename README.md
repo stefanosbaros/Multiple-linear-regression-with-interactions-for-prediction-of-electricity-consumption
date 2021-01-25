@@ -6,7 +6,7 @@
 Electric load forecasting lies at the heart of  power  system  operation  routines  such  as  economic  dispatch and optimal power flow.  This sparked a lot of interest in recent years towards  developing  accurate  models for  predicting  electric  load.  Prior  art  in  this domain employed time-series and linear regression as means for developing good  forecasting  models.  In this project, we use **multiple regression with interaction effects and cyclical features encoding** to develop a new model that can accurately predict electric load from several features including the temperature.  We  test our full model together with various reduced-order models that arise after considering subsets of all features and  quantify  their  performance  via both standard  **goodness-of-fit-criteria** such as the adjusted $$R^2$$ as well as criteria that rely on the **prediction error**. 
 
 
-![caption='Load-temperature characteristic']{ width=50% }
+![caption='Load-temperature characteristic']{:height="36px" width="36px"}.
 
 ## Description of files
 
