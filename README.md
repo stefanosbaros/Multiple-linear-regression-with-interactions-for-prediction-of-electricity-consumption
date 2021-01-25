@@ -81,8 +81,10 @@ where TMP, TMP2 and TMP3 denote the temperature, temperature squared and tempera
            ` 'TMPxSIN_HOUR','TMPxCOS_HOUR','TMP2xSIN_HOUR','TMP2xCOS_HOUR', 'TMP3xSIN_HOUR','TMP3xCOS_HOUR',`
            ` 'DTMPxSIN_HOUR', 'DTMPxCOS_HOUR']`
 
+The performance of these different models is assessed first using standard goodness-of-fit criteria.
 
-| Syntax | Description |
-| ----------- | ----------- |
-| Header | Title |
-| Paragraph | Text |
+
+| Model | Adjusted R-squared | Mean squared error |
+| ----------- | ----------- | ----------- |
+| Model 1 | ||
+| 
