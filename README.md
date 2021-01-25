@@ -31,7 +31,7 @@ Using  our  data,  we  plot  the  load  versus  temperature  characteristic to g
 ![caption='Load-temperature characteristic'](load_temp.png)
 
 
-### Capturing seasonal effects on load-temperature characteristic via interaction effects
+### Capturing seasonal variations on load-temperature characteristic via interaction effects
 Having discussed the main form of the load-temperature characteristics, we now explore how the particular month of the year, day of the week, and hour of the day affect the load either directly via energy-demanding human activities or indirectly via changes in the load-temperature relationship.
 
 #### Effect of month of the year on electric load
