@@ -66,7 +66,7 @@ The **features** we use in this project are:
            ` 'TMPxSIN_HOUR','TMPxCOS_HOUR','TMP2xSIN_HOUR','TMP2xCOS_HOUR', 'TMP3xSIN_HOUR','TMP3xCOS_HOUR',`
            ` 'DTMPxSIN_HOUR', 'DTMPxCOS_HOUR']`
             
-where TMP, TMP2 and TMP3 denote the temperature, temperature squared and temperature in the cubic power, respectively. The features SIN_MONTH, COS_MONTH, SIN_HOUR, COS_HOUR denote the cyclical variables associated with the particular month of the year and hour of the day. We construct **various regression models** each time by considering the following **subsets of features**:
+where TMP, TMP2 and TMP3 denote the temperature, temperature squared and temperature in the cubic power, respectively. The features SIN_MONTH, COS_MONTH, SIN_HOUR, COS_HOUR denote the cyclical variables associated with the particular month of the year and hour of the day. We construct **seven regression models** including the full model, each time by considering the following **subsets of features**:
 
 - `Model 1= ['TREND','TMP','TMP2']`
 - `Model 2= ['TREND','TMP','TMP2','TMP3'])`
@@ -82,4 +82,7 @@ where TMP, TMP2 and TMP3 denote the temperature, temperature squared and tempera
            ` 'DTMPxSIN_HOUR', 'DTMPxCOS_HOUR']`
 
 
-
+| Syntax | Description |
+| ----------- | ----------- |
+| Header | Title |
+| Paragraph | Text |
