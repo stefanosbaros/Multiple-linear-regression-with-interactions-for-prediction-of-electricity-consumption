@@ -66,7 +66,9 @@ The **features** we use in this project are:
            ` 'TMPxSIN_HOUR','TMPxCOS_HOUR','TMP2xSIN_HOUR','TMP2xCOS_HOUR', 'TMP3xSIN_HOUR','TMP3xCOS_HOUR',`
            ` 'DTMPxSIN_HOUR', 'DTMPxCOS_HOUR']`
             
-where TMP, TMP2 and TMP3 denote the temperature, temperature squared and temperature in the cubic power, respectively. The features SIN_MONTH, COS_MONTH, SIN_HOUR, COS_HOUR denote the cyclical variables associated with the particular month of the year and hour of the day. We construct **seven regression models** including the full model, each time by considering the following **subsets of features**:
+where TMP, TMP2 and TMP3 denote the temperature, temperature squared and temperature in the cubic power, respectively. The features SIN_MONTH, COS_MONTH, SIN_HOUR, COS_HOUR denote the cyclical variables associated with the particular month of the year and hour of the day. 
+
+We construct **seven regression models** including the full model, each time by considering the following **subsets of features**:
 
 - `Model 1= ['TREND','TMP','TMP2']`
 - `Model 2= ['TREND','TMP','TMP2','TMP3'])`
@@ -84,7 +86,13 @@ where TMP, TMP2 and TMP3 denote the temperature, temperature squared and tempera
 The performance of these different models is assessed first using standard goodness-of-fit criteria.
 
 
-| Model | Adjusted R-squared | Mean squared error |
-| ----------- | ----------- | ----------- |
-| Model 1 | ||
-| 
+| Model | Adjusted R-squared | Mean squared error (MSE) | Mean absolute error (MAE) |
+| ----------- | ----------- | ----------- | ----------- |
+| Model 1 | 0.6219 | 13.9104 | 3.0579 |
+| Model 2 | 0.6307 | 13.5849 | 2.9827 |
+| Model 3 | 0.6483 | 12.9366 | 2.9064 |
+| Model 4 | 0.6853 | 11.5732 | 2.7271 |
+| Model 5 | 0.7117 | 10.6013 | 2.6510 |
+| Model 6 | 0.7404 | 9.5481 | 2.4757 |
+| Full model | 0.7946 | 7.5506 | 2.2198 |
+
