@@ -5,6 +5,8 @@
 
 Electric load forecasting lies at the heart of  power  system  operation  routines  such  as  economic  dispatch and optimal power flow.  This sparked a lot of interest in recent years towards  developing  accurate  models for  predicting  electric  load.  Prior  art  in  this domain employed time-series and linear regression as means for developing good  forecasting  models.  In this project, we use **multiple regression with interaction effects and cyclical features encoding** to develop a new model that can accurately predict electric load from several features including the temperature.  We  test our full model together with various reduced-order models that arise after considering subsets of all features and  quantify  their  performance  via both standard  **goodness-of-fit-criteria** such as the adjusted R-squared as well as criteria that rely on the **prediction error**. 
 
+## Dataset Description
+
 
 
 ## Description of files
@@ -17,7 +19,9 @@ There are **four** main files in this project repository:
 - `holiday_list_conv.py`
 - `Load_forecasting.py`
 
-The `dataPrep.py` contains code for data cleansing and preprocessing for regression.
+The `DataAnalysis.py` contains code for correlation analysis for load zones and temperature stations. The correlation analysis showed that there is a strong correlation between load in load zone 1 and temperature measured by temperature station 6 (corr_coeff ~ 0.85). It is therefore likely that the load zone 1 and temperature station 6 are geograpically collocated. 
+
+The `dataPrep.py` contains code for data cleansing and preprocessing for regression. Various features (described below), including main effects and interaction effects, are generated and added to the datatable `full_model.csv`
 
 ## Project details
 
