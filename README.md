@@ -17,7 +17,7 @@ There are **four** main files in this project repository:
 - `holiday_list_conv.py`
 - `Load_forecasting.py`
 
-The `dataPrep.py` **Ana describe**
+The `dataPrep.py` contains code for data cleansing and preprocessing for regression.
 
 ## Project details
 
