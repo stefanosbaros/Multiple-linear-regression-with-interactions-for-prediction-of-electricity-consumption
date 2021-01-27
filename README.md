@@ -7,21 +7,30 @@ Electric load forecasting lies at the heart of  power  system  operation  routin
 
 ## Dataset Description
 
+Dataset used in this project originates from the [Global Energy Forecasting Competition 2012](https://www.kaggle.com/c/global-energy-forecasting-competition-2012-load-forecasting/overview/description) - a hierarchical load forecasting problem for forecasting hourly loads (in kW) for a US utility with 20 zones.
 
+Data (loads of 20 zones and temperature of 11 stations) history ranges from the 1st hour of 2004/1/1 to the 6th hour of 2008/6/30. Given actual temperature history, 8 nonconsecutive weeks in the load history are set to be missing.
+
+In both of the original dataset files three columns are calendar variables: year, month of the year and day of the month, and the last 24 columns are the 24 hours of the day. Files:
+- `Load_history.csv` - first column is load zone ID
+- `Temperature_history.csv` - first column is temperature station ID
+
+Additionally, a file containing a list of holidays, `Holiday_list.csv`, for the period 2004-2008 is used.
 
 ## Description of files
-
 
 There are **four** main files in this project repository:
 
 - `dataPrep.py`
 - `DataAnalysis.py`
-- `holiday_list_conv.py`
+- ~~`holiday_list_conv.py`~~ - needs to be merged into the dataPrep file
 - `Load_forecasting.py`
 
 The `DataAnalysis.py` contains code for correlation analysis for load zones and temperature stations. The correlation analysis showed that there is a strong correlation between load in load zone 1 and temperature measured by temperature station 6 (corr_coeff ~ 0.85). It is therefore likely that the load zone 1 and temperature station 6 are geograpically collocated. 
 
 The `dataPrep.py` contains code for data cleansing and preprocessing for regression. Various features (described below), including main effects and interaction effects, are generated and added to the datatable `full_model.csv`
+
+The `Load_forecasting.py` file contains the implementation of the various Multiple Linear Regression (MLR) models described below.
 
 ## Project details
 
@@ -49,20 +58,19 @@ Summer months are characterized by high temperatures while winter months by low 
 To gain more insight, we study the load-temperature characteristic for several months of the year. From these plots, we see that the quantitative relationship between the temperature and the load varies along with the month. This simply means that same temperature will lead to different electric load levels in different months. A few days with high temperatures in May will not lead to the same load as days with the same temperatures in August as people would probably not turn on AC in May even if the temperature in some days is high. Similarly, a few cold days in September will not result in the same load as days with the same temperature in October as a lot of central heating systems are usually scheduled to turn on in October.
 It it clear from this analysis that the **load-temperature characteristic for different months would be different**. Therefore, the function that describes the relationship between the load and the temperature really depends on the month under consideration. In regression analysis, such effects can be formally accounted for in a model through interaction effects. Here, we consider **interaction effects among the temperature-load  characteristic and each month** in our model by adding new features.
 
-
-
 #### Effect of day of the week on the electric load
-The load-temperature characteristic does not depend on the particular day of the week e.g., the same temperature during the week should lead to approximately the same Load in a weekday and the weekends, assuming that everything else remains equal. There is no reason for people to react to a particular temperature differently during a weekday than in the weekend. Further, there is not reason for the temperatures during the week to be different than the temperatures during the weekend. Nevertheless, the load on the weekdays will be different than the load on the weekend primarily due to people engaging in different activities on the weekends than on weekdays that demand different energy levels. To consider this direct effect, we use several cyclical variables
-
-**Ana fill out**
---- Monday, other weekday, Saturday, Sunday, and other Holidays. These variables will take on the values 0 or 1 depending on the day of the week.
-
-
+The load-temperature characteristic does not depend on the particular day of the week e.g., the same temperature during the week should lead to approximately the same Load in a weekday and the weekends, assuming that everything else remains equal. There is no reason for people to react to a particular temperature differently during a weekday than in the weekend. Further, there is not reason for the temperatures during the week to be different than the temperatures during the weekend. Nevertheless, the load on the weekdays will be different than the load on the weekend primarily due to people engaging in different activities on the weekends than on weekdays that demand different energy levels.
 
 #### Effect of hour of the day on the load
 The temperature varies with the hour of the day. We want to see whether the load-temperature characteristic depends on the hour of the day. Plotting the load for different hours of the day, we see that the load-temperature characteristic does change with the hour of the day. This aligns with intuition as low temperature in the middle of the the night will not lead to the same electric load as the same temperature at noon the day after--- as people most likely will not wake up and turn on heat in the middle of the night. 
 To account for this effect, we allow **interaction of the load-temperature characteristic with the hour of the day** by adding new features.
 The hour of the day also affects the load through the heat build-up effect. The temperature at the previous hour will affect the load at the current hour together with the temperature at the current hour. To understanding this,  consider the following two scenarios. In the first scenario,  consider a winter day where the temperature at the previous hour is higher than the temperature at the curren hour. In this case, the buildings' walls would have stored some heat and thus there is not need for people to ramp up their heating systems at the current hour. In the second scenario,  consider that the temperature in the previous hour is the same with the temperature at the current hour (and equal to the temperature at the current hour of the previous scenario). In this case there is not much heat build-up in the buildings so at the current hour people would have to to use their heating systems more heavily despite having the same temperature as in the previous scenario.
+
+### Encoding continuous cyclical variables
+
+Variables such as month of the year (1-12), day of the month (1-28 to 31), hour of the day (0-24) are inherently cyclical. The need for encoding these variable comes, for example, from the fact that month 1 (January) is not necesarily 11 months away from month 12 (December). That means that keeping the ordinal encodings for these variables produces an unwanted bias in any Machine Learning algorithm: that January and December are really far away. To remove this bias, these variables are usually considered categorical and encoded as one-hot vectors (dummy variables). However, this encoding removes the inherent ordering of the variables: months come in a specific order, and January and December are just as close to each other as June and July. In order to preserve this information on inherent ordering of cyclical variables, we encode each of the cyclical features using two additional variables: sine and cosine transforms. 
+
+@Ana insert plot of cyclical features
 
 ## Results
 
@@ -90,7 +98,7 @@ We construct **seven regression models** including the full model, each time by 
            ` 'TMPxSIN_HOUR','TMPxCOS_HOUR','TMP2xSIN_HOUR','TMP2xCOS_HOUR', 'TMP3xSIN_HOUR','TMP3xCOS_HOUR',`
            ` 'DTMPxSIN_HOUR', 'DTMPxCOS_HOUR']`
 
-The performance of these different models is assessed first using **standard goodness-of-fit criteria**. 
+The performance of these different models is assessed first using **standard goodness-of-fit and accuracy criteria**. 
 
 
 | Model | Adjusted R-squared | Mean squared error (MSE) | Mean absolute error (MAE) |
