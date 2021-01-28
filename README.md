@@ -23,7 +23,6 @@ There are **four** main files in this project repository:
 
 - `dataPrep.py`
 - `DataAnalysis.py`
-- ~~`holiday_list_conv.py`~~ - needs to be merged into the dataPrep file
 - `Load_forecasting.py`
 
 The `DataAnalysis.py` contains code for correlation analysis for load zones and temperature stations. The correlation analysis showed that there is a strong correlation between load in load zone 1 and temperature measured by temperature station 6 (corr_coeff ~ 0.85). It is therefore likely that the load zone 1 and temperature station 6 are geograpically collocated. 
@@ -70,7 +69,7 @@ The hour of the day also affects the load through the heat build-up effect. The 
 
 Variables such as month of the year (1-12), day of the month (1-28 to 31), hour of the day (0-24) are inherently cyclical. The need for encoding these variable comes, for example, from the fact that month 1 (January) is not necesarily 11 months away from month 12 (December). That means that keeping the ordinal encodings for these variables produces an unwanted bias in any Machine Learning algorithm: that January and December are really far away. To remove this bias, these variables are usually considered categorical and encoded as one-hot vectors (dummy variables). However, this encoding removes the inherent ordering of the variables: months come in a specific order, and January and December are just as close to each other as June and July. In order to preserve this information on inherent ordering of cyclical variables, we encode each of the cyclical features using two additional variables: sine and cosine transforms. 
 
-@Ana insert plot of cyclical features
+![caption='Cyclical feature encoding - hour of the day'](Figure_sincos.png#center)
 
 ## Results
 
