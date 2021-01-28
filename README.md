@@ -98,7 +98,7 @@ We construct **seven regression models** including the full model, each time con
 - `Full model= ['TREND','TMP','TMP2','TMP3','SIN_MONTH','COS_MONTH','TMPxSIN_MONTH',`
             `'TMPxCOS_MONTH','TMP2xSIN_MONTH','TMP2xCOS_MONTH', 'TMP3xSIN_MONTH','TMP3xCOS_MONTH',`
            ` 'TMPxSIN_HOUR','TMPxCOS_HOUR','TMP2xSIN_HOUR','TMP2xCOS_HOUR', 'TMP3xSIN_HOUR','TMP3xCOS_HOUR',`
-           ` 'DTMPxSIN_HOUR', 'DTMPxCOS_HOUR']`
+           ` 'DTMPxSIN_HOUR', 'DTMPxCOS_HOUR','Holi','isWknd']`
 
 The performance of these different models is assessed using **standard goodness-of-fit and accuracy criteria** as shown in the table below. 
 
@@ -111,7 +111,7 @@ The performance of these different models is assessed using **standard goodness-
 | Model 4 | 0.6853 | 11.5732 | 2.7271 |
 | Model 5 | 0.7117 | 10.6013 | 2.6510 |
 | Model 6 | 0.7404 | 9.5481 | 2.4757 |
-| Full model | 0.7946 | 7.5506 | 2.2198 |
+| Full model | 0.7951 | 7.5349 | 2.2172 |
 
 
 ### Discussion on the results
