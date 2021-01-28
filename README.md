@@ -3,11 +3,11 @@
 
 ## Project description
 
-Electric load forecasting lies at the heart of  power  system  operation  routines  such  as  economic  dispatch and optimal power flow.  This sparked a lot of interest in recent years towards  developing  accurate  models for  predicting  electric  load.  Prior  art  in  this domain employed time-series and linear regression as means for developing good  forecasting  models.  In this project, we use **multiple regression with interaction effects and cyclical features encoding** to develop a new model that can accurately predict electric load from several features including the temperature.  We  test our full model together with various reduced-order models that arise after considering subsets of all features and  quantify  their  performance  via both standard  **goodness-of-fit-criteria** such as the adjusted R-squared as well as criteria that rely on the **prediction error**. 
+Electric load forecasting lies at the heart of  power  system  operation  routines  such  as  economic  dispatch and optimal power flow. In recent years the scientific community has placed a lot of emphasis towards  developing  accurate  models for  predicting  electric  load.  Prior  art  in  this domain employed time-series and linear regression for developing good  forecasting  models.  In this project, we use **multiple polynomial regression with interaction effects and cyclical features encoding** to develop a new model that can accurately predict electric load from several features including the temperature.  We  test and quantify  their  performance of our full model together with various reduced-order models that rely on subsets of all features via both standard  **goodness-of-fit-criteria** such as the adjusted R-squared as well as criteria that rely on the **prediction error**. 
 
 ## Dataset description
 
-Dataset used in this project originates from the [Global Energy Forecasting Competition 2012](https://www.kaggle.com/c/global-energy-forecasting-competition-2012-load-forecasting/overview/description) - a hierarchical load forecasting problem for forecasting hourly loads (in kW) for a US utility with 20 zones.
+The dataset used in this project originates from the [Global Energy Forecasting Competition 2012](https://www.kaggle.com/c/global-energy-forecasting-competition-2012-load-forecasting/overview/description) - a hierarchical load forecasting problem for forecasting hourly loads (in kW) for a US utility with 20 zones.
 
 Data (loads of 20 zones and temperature of 11 stations) history ranges from the 1st hour of 2004/1/1 to the 6th hour of 2008/6/30. Given actual temperature history, 8 nonconsecutive weeks in the load history are set to be missing.
 
