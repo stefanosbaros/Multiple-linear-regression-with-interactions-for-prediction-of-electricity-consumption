@@ -23,10 +23,10 @@ There are **four** main files in this project repository:
 
 - `dataPrep.py`
 - `DataAnalysis.py`
-- ~~`holiday_list_conv.py`~~ - needs to be merged into the dataPrep file
 - `Load_forecasting.py`
 
-The `DataAnalysis.py` contains the code used for correlation analysis for load zones and temperature stations. The correlation analysis showed that there is a strong correlation between the load in load zone 1 and the temperature measured by temperature station 6 (corr_coeff ~ 0.85). It is therefore likely that the load zone 1 and temperature station 6 are geograpically collocated and thus temperature measurements from station 6 can be used to design a regression model for predicting the load in zone 1. 
+
+The `DataAnalysis.py` contains code for imputation of missing data and correlation analysis for load zones and temperature stations. The `Load_history.csv` is missing 8 nonconsecutive weeks of load data. Missing hourly load values were imputed using the mean value of the same load zone at the same time (hour, day, month) over the other available years. The correlation analysis showed that there is a strong correlation, for example, between load in load zone 1 and temperature measured by temperature station 6 (corr_coeff ~ 0.85). It is therefore likely that the load zone 1 and temperature station 6 are geograpically collocated.
 
 The `dataPrep.py` contains code for data cleansing and preprocessing for regression. Various features (described below), including main effects and interaction effects, are generated and added to the datatable `full_model.csv`
 
@@ -70,7 +70,9 @@ The hour of the day also affects the load through the heat build-up effect. The 
 
 Variables such as month of the year (1-12), day of the month (1-28 to 31), hour of the day (0-24) are inherently cyclical. The need for encoding these variable comes, for example, from the fact that month 1 (January) is not necesarily 11 months away from month 12 (December). This means that keeping the ordinal encodings for these variables produces an unwanted bias in any Machine Learning algorithm: that January and December are really far away. To remove this bias, these variables are usually considered categorical and encoded as one-hot vectors (dummy variables). However, this encoding removes the inherent ordering of the variables: months come in a specific order, and January and December are just as close to each other as June and July. In order to preserve this information on inherent ordering of cyclical variables, we encode each of the cyclical features using two additional variables: sine and cosine transforms. 
 
-@Ana insert plot of cyclical features
+Example below shows the cyclical variable encoding of the hour of the day. Using this encoding 23:00 is just as close to 1:00, as 15:00 is to 17:00, which is exactly the information we wanted preserved.
+
+![caption='Cyclical feature encoding - hour of the day'](Figure_sincos.png#center)
 
 ## Results
 
