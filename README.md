@@ -119,4 +119,3 @@ A couple of things are important to notice here. First, Model 2 performs better 
 
 ![Actual vs predicted load](actual_predicted_load_temp.png) ![Actual vs predicted load](actual_predicted.png)
 
-
