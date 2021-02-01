@@ -2,7 +2,7 @@
 """
 Created on Mon Nov 30 12:00:14 2020
 
-@author: Ana
+@author: Ana Jevtic and Stefanos Baros (both authors contributed equally)
 
 Imputation for 8 nonconsecutive weeks of missing load data
 Correlation analysis for load zones and temperature stations
