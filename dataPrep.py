@@ -2,7 +2,8 @@
 """
 Created on Mon Nov 30 17:26:00 2020
 
-@author: Ana
+@author: Ana Jevtic and Stefanos Baros (both authors contributed equally)
+
 
 Data cleansing and preprocessing for regression
 Regression variables:
