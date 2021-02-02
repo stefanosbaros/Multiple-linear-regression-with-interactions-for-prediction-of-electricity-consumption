@@ -1,7 +1,7 @@
 # Multiple linear regression with interaction effects for load forecasting
 
 
-###  Authors: Ana Jevtic and Stefanos Baros (both authors contributed equally)
+**Authors**: Ana Jevtic and Stefanos Baros (both authors contributed equally)
 
 
 ## Project description
